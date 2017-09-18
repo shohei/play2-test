@@ -1,0 +1,17 @@
+@(book: Book)
+
+@import play.api.data.Form
+@import models.Book
+@import play.filters.csrf.CSRF
+@import helper._
+@import play.twirl.api.Html
+
+@layout(book.title){
+    <h1>@book.title</h1>
+    <p>Price: @book.price</p>
+    <p>Author: @book.author</p>
+
+    <a href="@routes.BooksController.edit(book.id)">Edit</a>
+    <a href="@routes.BooksController.destroy(book.id)">Delete</a>
+}
+
